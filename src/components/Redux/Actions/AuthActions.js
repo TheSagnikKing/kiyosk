@@ -74,7 +74,7 @@ export const AdminLogoutAction = (navigate) => async (dispatch) => {
              payload:data
          })
          localStorage.setItem("userLoggedIn","false")
-         navigate("/signin")
+         navigate("/")
     } catch (error) {
          dispatch({
              type: ADMIN_LOGOUT_FAIL,
@@ -104,7 +104,7 @@ export const LoggedOutMiddlewareAction = (navigate) => async (dispatch) => {
 
         if(error?.response?.data?.message == "Refresh Token not present.Please Login Again"){
             localStorage.setItem("userLoggedIn", "false")
-            navigate("/signin")
+            navigate("/")
         }
     }
 };
@@ -116,8 +116,6 @@ export const LoggedInMiddlewareAction = (navigate) => async (dispatch) => {
             type:LOGGED_IN_MIDDLEWARE_REQ
         })
         const { data } = await api.get(`/api/admin/loggedinmiddleware`);
-
-        console.log("ascascvdffsv",data)
 
         dispatch({
             type: LOGGED_IN_MIDDLEWARE_SUCCESS,

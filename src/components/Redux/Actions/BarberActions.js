@@ -7,16 +7,6 @@ export const barberListAction = (salonId,setModel1,setModel2barber,setModel2) =>
 
         const {data} = await api.post(`/api/queue/getAvailableBarbersForQ?salonId=${salonId}`)
 
-        // dispatch({
-        //     type:GET_BARBER_SERVICES_SUCCESS,
-        //     payload:{}
-        // })
-
-        // dispatch({
-        //     type:GET_BARBERLIST_SUCCESS,
-        //     payload:{}
-        // })
-
         dispatch({
             type:GET_BARBERLIST_SUCCESS,
             payload:data

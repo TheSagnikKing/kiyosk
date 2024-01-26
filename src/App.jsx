@@ -12,7 +12,7 @@ const App = () => {
     <BrowserRouter>
       <Suspense fallback={<div className='lazy-loader'><BeatLoader color="rgba(54, 60, 214, 1)" /></div>}>
         <Routes>
-          <Route path="/signin" element={<Signin />} />
+          <Route path="/" element={<Signin />} />
           <Route path="/queue" element={<AdminAuth><Queue/></AdminAuth>}/>
           <Route path="/kiyosk" element={<AdminAuth><Kiyosk/></AdminAuth>}/>
         </Routes>
