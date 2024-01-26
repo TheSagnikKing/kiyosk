@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { AdminLoginReducer, AdminLogoutReducer, LoggedInMiddlewareReducer, LoggedOutMiddlewareReducer } from "./Reducers/AuthReducers";
-import { queueListReducer } from "./Reducers/QueueReducers";
+import { queueListReducer, singleJoinQueueReducer } from "./Reducers/QueueReducers";
 import { barberListReducer, getAllSalonServicesReducer, getBarberByMultipleServicesReducer, getBarberServicesBybarberIdReducer } from "./Reducers/BarberReducers";
 
 const rootReducer = combineReducers({
@@ -13,7 +13,8 @@ const rootReducer = combineReducers({
   barberList:barberListReducer,
   getBarberServicesBybarberId:getBarberServicesBybarberIdReducer,
   getAllSalonServices:getAllSalonServicesReducer,
-  getBarberByMultipleServices:getBarberByMultipleServicesReducer
+  getBarberByMultipleServices:getBarberByMultipleServicesReducer,
+  singleJoinQueue:singleJoinQueueReducer
 });
 
 const initialState = {};

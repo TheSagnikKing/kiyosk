@@ -37,7 +37,7 @@ const Queue = () => {
             <div>
                 <h2>Queue List </h2>
 
-                <p><Link to="/kiyosk">Join Queue</Link></p>
+                <p><Link to="/kiosk">Join Queue</Link></p>
             </div>
 
             <div className='queue-list-table'>
@@ -52,15 +52,15 @@ const Queue = () => {
                 </div>
 
                 {
-                    queueList?.response?.map((c) => (
+                    queueList?.response?.map((c,index) => (
                         <div className='que-lst-content' key={c._id}>
-                            
-                            <p>Not Available</p>
+
+                            <p>{index + 1}</p>
                             <p>{c.timeJoinedQ}</p>
                             <p>{c.barberName}</p>
                             <p>Not Available</p>
                             <p>{c.qPosition}</p>
-                            <p>Whose EWT ?</p>
+                            <p>{c.customerEWT}</p>
                         </div>
                     ))
                 }

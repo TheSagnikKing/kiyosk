@@ -14,7 +14,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Signin />} />
           <Route path="/queue" element={<AdminAuth><Queue/></AdminAuth>}/>
-          <Route path="/kiyosk" element={<AdminAuth><Kiyosk/></AdminAuth>}/>
+          <Route path="/kiosk" element={<AdminAuth><Kiyosk/></AdminAuth>}/>
         </Routes>
       </Suspense>
     </BrowserRouter>

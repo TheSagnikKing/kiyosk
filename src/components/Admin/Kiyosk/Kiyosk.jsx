@@ -26,6 +26,7 @@ import { RxCross2 } from "react-icons/rx";
 import { barberListAction, getAllSalonServicesAction, getBarberByMultipleServicesAction, getbarberServicesbyBarberIdAction } from '../../Redux/Actions/BarberActions';
 import BarberModal from './BarberModal/BarberModal'
 import ServiceModal from './ServiceModal/ServiceModal';
+import { singleJoinQueueAction } from '../../Redux/Actions/QueueActions';
 
 const Kiyosk = () => {
 
@@ -145,7 +146,7 @@ const Kiyosk = () => {
 
     if (confirm) {
       console.log(queuedata)
-      // dispatch(singleJoinQueueAction(queuedata, setSelectedService, navigate))
+      dispatch(singleJoinQueueAction(queuedata, setSelectedService, navigate))
       setName("")
     }
 
@@ -224,7 +225,7 @@ const Kiyosk = () => {
           </div>
 
           <div className='barber-single-join-dropdown'>
-            <p>Choose  Services :</p>
+          <p>Choose Services: {selectedService && selectedService.map((s, index) => <span key={index}>{s.serviceName}{index < selectedService.length - 1 ? ',' : ''}</span>)}</p>
 
             <button onClick={() => setIsOpen2(true)}>Show Services</button>
             <ServiceModal isOpen={isOpen2} setIsOpen={setIsOpen2} getAllSalonServices={getAllSalonServices} getAllSalonServicesLength={getAllSalonServicesLength} selectedService={selectedService} selectedServiceDelete={selectedServiceDelete} selectedServiceHandler={selectedServiceHandler} fetchSelectedServices={fetchSelectedServices} getBarberServicesOfSalonLength={getBarberServicesOfSalonLength} getBarberByMultipleServices={getBarberByMultipleServices} setCurrentbarberName={setCurrentbarberName} setSelectedBarberid={setSelectedBarberid} currentbarberName={currentbarberName} setGetAllSalonServicesLength={setGetAllSalonServicesLength} setGetBarberServicesOfSalonLength={setGetBarberServicesOfSalonLength} setSelectedBarberName={setSelectedBarberName} />
