@@ -1,0 +1,135 @@
+.queue-wrapper{
+    width: 98%;
+    margin: 35px auto;
+}
+
+.joins{
+    background-color:none;
+    margin-block: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.joins>div{
+    position: relative;
+}
+
+.joins>div>p{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.4);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.joins-dropdown{
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    background-color: #fff;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.4);
+}
+
+.queue-list-table{
+    background-color: #fff;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+.que-lst-head{
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(6,1fr);
+    background-color: #f1f6fc;
+    font-size: 14px;
+    height: 45px;
+    padding-inline: 10px;
+    border-radius: 6px;
+    margin-block: 20px;
+}
+
+.que-lst-content{
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(6,1fr);
+    background-color: #f1f6fc;
+    font-size: 14px;
+    height: 45px;
+    padding-inline: 10px;
+    border-radius: 6px;
+    margin-block: 20px;
+}
+
+.que-serve{
+    background-color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.4);
+    color: limegreen;
+    cursor: pointer;
+}
+
+.que-cancel{
+    background-color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.4);
+    color:crimson;
+    cursor: pointer;
+}
+
+.queue-wrapper>div:nth-child(2){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: 20px;
+}
+
+.queue-wrapper>div:nth-child(2)>p:nth-child(2){
+    height: 45px;
+    width: 120px;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.4);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.queue-wrapper>button:nth-child(1){
+    margin-inline: 20px;
+    height: 35px;
+    width: 80px;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.4);
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}

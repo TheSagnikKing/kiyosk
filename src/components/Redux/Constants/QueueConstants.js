@@ -1,0 +1,3 @@
+export const QUELIST_REQ = "QUELIST_REQ"
+export const QUELIST_SUCCESS = "QUELIST_SUCCESS"
+export const QUELIST_FAIL = "QUELIST_FAIL"
