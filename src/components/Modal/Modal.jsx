@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.css';
+import { MdClose } from "react-icons/md";
 import { GET_ALL_SALON_SERVICES_SUCCESS, GET_BARBERLIST_SUCCESS, GET_BARBERS_BY_MULTIPLE_SERVICES_SUCCESS, GET_BARBER_SERVICES_SUCCESS } from '../Redux/Constants/BarberConstants';
 import { useDispatch } from 'react-redux';
 
@@ -46,13 +47,12 @@ const Modal = ({ isOpen, setIsOpen, children, setGetBarberServicesBybarberIdLeng
     if (setGetBarberServicesOfSalonLength) {
       setGetBarberServicesOfSalonLength(false)
     }
-    // setGetBarberServicesBybarberIdLength(false)
   }
 
   return ReactDOM.createPortal(
     <div className="main-modal-container">
       <div>
-        <div className="modal-content"><button onClick={closeModal}>Close Modal</button>
+        <div className="modal-content"><button onClick={closeModal} className='main-modal-close'><MdClose /></button>
           {children}
         </div>
       </div>

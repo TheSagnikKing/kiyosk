@@ -5,6 +5,8 @@ import { TiTick } from 'react-icons/ti'
 import { RxCross2 } from 'react-icons/rx'
 import { FaRegClock } from 'react-icons/fa'
 
+import ClipLoader from "react-spinners/ClipLoader";
+
 const KyskModal = ({ isOpen, setIsOpen, barberList, currentbarberName, barberServiceCallHandler, getBarberServicesBybarberIdLength, getBarberServicesBybarberId, selectedService, selectedServiceHandler, selectedServiceDelete, setGetBarberServicesBybarberIdLength }) => {
 
   return (<>
@@ -75,7 +77,7 @@ const KyskModal = ({ isOpen, setIsOpen, barberList, currentbarberName, barberSer
       }
 
     </div></Modal> : <Modal isOpen={isOpen} setIsOpen={setIsOpen} setGetBarberServicesBybarberIdLength={setGetBarberServicesBybarberIdLength}>
-      <h2>Barber Name: {currentbarberName}</h2>
+
       <div className='model1'>
         {barberList?.loading == false && barberList?.response ? barberList?.response?.map((barber) => (
           <div key={barber._id}>
@@ -122,7 +124,7 @@ const KyskModal = ({ isOpen, setIsOpen, barberList, currentbarberName, barberSer
             </div>
 
           </div>
-        )) : <h1>Loading</h1>}
+        )) : <div className='kiyosk-loader'><ClipLoader size={50}/></div>    }
       </div>
     </Modal>}
   </>
@@ -130,81 +132,3 @@ const KyskModal = ({ isOpen, setIsOpen, barberList, currentbarberName, barberSer
 }
 
 export default KyskModal
-
-
-// import React, { useEffect } from 'react';
-// import Modal from '../../../Modal/Modal';
-// import { IoIosAddCircle } from 'react-icons/io';
-// import { TiTick } from 'react-icons/ti';
-// import { useDispatch } from 'react-redux';
-// import { barberListAction } from '../../../Redux/Actions/BarberActions';
-// import BarberServiceModal from './BarberServiceModal/BarberServiceModal';
-
-// const KyskModal = ({ isOpen, setIsOpen, barberList, currentbarberName, barberServiceCallHandler, getBarberServicesBybarberId }) => {
-//   return (
-//     <>
-//       {getBarberServicesBybarberId?.response.length > 0 ? (
-//         <BarberServiceModal setIsOpen={setIsOpen} />
-//       ) : (
-//         <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-//           <h2>Barber Name: {currentbarberName}</h2>
-//           <div className='model1'>
-//             {barberList?.response?.map((barber) => (
-//               <div key={barber._id}>
-//                 <div>
-//                   <div>
-//                     <div>
-//                       <img src="https://png.pngtree.com/background/20230530/original/pngtree-man-looking-for-a-good-mens-beauty-look-picture-image_2791625.jpg" alt="" />
-//                     </div>
-//                     <div>
-//                       <h3>{barber.name}</h3>
-//                       <p>(4.5)</p>
-//                       <p>Cutting, Styling, Hair color, Hair Straightening</p>
-//                     </div>
-//                   </div>
-//                   <div>
-//                     <p>Queued</p>
-//                     <h2>{barber.queueCount}</h2>
-//                   </div>
-//                   {currentbarberName === barber.name ? (
-//                     <div
-//                       style={{
-//                         fontSize: '30px',
-//                         display: 'flex',
-//                         justifyContent: 'center',
-//                         alignItems: 'center',
-//                         color: 'green',
-//                         height: '30px',
-//                         width: '30px',
-//                         borderRadius: '50%',
-//                         boxShadow: '0px 0px 4px rgba(0,0,0,0.5)',
-//                       }}
-//                     >
-//                       <TiTick />
-//                     </div>
-//                   ) : (
-//                     <div onClick={() => barberServiceCallHandler(barber.barberId, barber.name)}>
-//                       <IoIosAddCircle />
-//                     </div>
-//                   )}
-//                 </div>
-//                 <div>
-//                   <div>
-//                     <p>Next available position</p>
-//                     <h2>3</h2>
-//                   </div>
-//                   <div>
-//                     <p>Estimated Time</p>
-//                     <h2>{barber.barberEWT} mins</h2>
-//                   </div>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         </Modal>
-//       )}
-//     </>
-//   );
-// };
-
-// export default KyskModal;

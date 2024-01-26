@@ -54,13 +54,13 @@ const Queue = () => {
                 {
                     queueList?.response?.map((c) => (
                         <div className='que-lst-content' key={c._id}>
-                            <p>{c.name}</p>
-                            {/* <p>{c.joinedQ == true ? "True" : "False"}</p> */}
-                            {/* <p>{c.joinedQType}</p> */}
+                            
+                            <p>Not Available</p>
                             <p>{c.timeJoinedQ}</p>
                             <p>{c.barberName}</p>
+                            <p>Not Available</p>
                             <p>{c.qPosition}</p>
-                            
+                            <p>Whose EWT ?</p>
                         </div>
                     ))
                 }

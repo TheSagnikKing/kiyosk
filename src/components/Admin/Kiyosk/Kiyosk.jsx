@@ -32,11 +32,11 @@ const Kiyosk = () => {
   const [isOpen1, setIsOpen1] = useState(false)
   const [isOpen2, setIsOpen2] = useState(false)
 
-  const [getBarberServicesBybarberIdLength,setGetBarberServicesBybarberIdLength] = useState(false)
-  const [getAllSalonServicesLength, setGetAllSalonServicesLength] = useState(false) 
+  const [getBarberServicesBybarberIdLength, setGetBarberServicesBybarberIdLength] = useState(false)
+  const [getAllSalonServicesLength, setGetAllSalonServicesLength] = useState(false)
   const [getBarberServicesOfSalonLength, setGetBarberServicesOfSalonLength] = useState(false)
 
-  console.log("GetAllSalon",getAllSalonServicesLength)
+  console.log("GetAllSalon", getAllSalonServicesLength)
 
   const dispatch = useDispatch()
 
@@ -53,16 +53,14 @@ const Kiyosk = () => {
 
 
   useEffect(() => {
-    if(isOpen1 == true){
+    if (isOpen1 == true) {
       const fetchAllBarbers = () => {
-        const confirm = window.confirm("Are you sure?")
-  
-        if (confirm) {
-          setCurrentbarberName("")
-          dispatch(barberListAction(salonId))
-        }
+
+        setCurrentbarberName("")
+        dispatch(barberListAction(salonId))
+
       }
-  
+
       fetchAllBarbers()
     }
   }, [isOpen1])
@@ -78,28 +76,26 @@ const Kiyosk = () => {
   const [currentbarberName, setCurrentbarberName] = useState("")
 
   const barberServiceCallHandler = (barberId, name) => {
-    const selectbarber = window.confirm("Are you sure ?")
-    if (selectbarber) {
+
       setSelectedBarberid(Number(barberId))
       setSelectedBarberName(name)
       setCurrentbarberName(name)
-      dispatch(getbarberServicesbyBarberIdAction(Number(barberId), setModelservices,setGetBarberServicesBybarberIdLength))
+      dispatch(getbarberServicesbyBarberIdAction(Number(barberId), setModelservices, setGetBarberServicesBybarberIdLength))
       setSelectedService([])
-    }
 
   }
 
   useEffect(() => {
-    if(isOpen2 == true){
-    const fetchAllServices = () => {
-      dispatch(getAllSalonServicesAction(Number(salonId), setModel1, setModelservices,setCurrentbarberName,setModel2,setGetAllSalonServicesLength))
-      setSelectedService([])
-    }
+    if (isOpen2 == true) {
+      const fetchAllServices = () => {
+        dispatch(getAllSalonServicesAction(Number(salonId), setModel1, setModelservices, setCurrentbarberName, setModel2, setGetAllSalonServicesLength))
+        setSelectedService([])
+      }
 
-    fetchAllServices()
-  }
-  },[isOpen2])
-  
+      fetchAllServices()
+    }
+  }, [isOpen2])
+
 
   const getBarberServicesBybarberId = useSelector(state => state.getBarberServicesBybarberId)
   const getAllSalonServices = useSelector(state => state.getAllSalonServices)
@@ -155,9 +151,9 @@ const Kiyosk = () => {
 
   }
 
-  console.log("Today 26/01 selectService",selectedService)
-  console.log("Today 26/01 selectedbarberId",selectedbarberId)
-  console.log("Today 26/01 selectedbarberName",selectedbarberName)
+  console.log("Today 26/01 selectService", selectedService)
+  console.log("Today 26/01 selectedbarberId", selectedbarberId)
+  console.log("Today 26/01 selectedbarberName", selectedbarberName)
 
   const singleJoinQueue = useSelector(state => state.singleJoinQueue)
 
@@ -176,7 +172,7 @@ const Kiyosk = () => {
     // console.log(serviceIds, salonId)
 
     setCurrentbarberName("")
-    dispatch(getBarberByMultipleServicesAction(salonId, serviceIds,setModel2barber))
+    dispatch(getBarberByMultipleServicesAction(salonId, serviceIds, setModel2barber))
     setGetAllSalonServicesLength(false)
     setGetBarberServicesOfSalonLength(true)
   }
@@ -219,25 +215,25 @@ const Kiyosk = () => {
         </div>
 
 
-        <div  className='kyosk-container'>
+        <div className='kyosk-container'>
           <div className='barber-single-join-dropdown'>
-            <p>Barber Name : <b>{currentbarberName && currentbarberName}</b></p>
+            <p>Barber Name : <b>{currentbarberName && currentbarberName || selectedbarberName && selectedbarberName}</b></p>
 
             <button onClick={() => setIsOpen1(true)}>Show Barber</button>
-            <BarberModal isOpen={isOpen1} setIsOpen={setIsOpen1} barberList={barberList} currentbarberName={currentbarberName} barberServiceCallHandler={barberServiceCallHandler} getBarberServicesBybarberIdLength={getBarberServicesBybarberIdLength} getBarberServicesBybarberId={getBarberServicesBybarberId} selectedService={selectedService} selectedServiceHandler={selectedServiceHandler} selectedServiceDelete={selectedServiceDelete} setGetBarberServicesBybarberIdLength={setGetBarberServicesBybarberIdLength}/>
+            <BarberModal isOpen={isOpen1} setIsOpen={setIsOpen1} barberList={barberList} currentbarberName={currentbarberName} barberServiceCallHandler={barberServiceCallHandler} getBarberServicesBybarberIdLength={getBarberServicesBybarberIdLength} getBarberServicesBybarberId={getBarberServicesBybarberId} selectedService={selectedService} selectedServiceHandler={selectedServiceHandler} selectedServiceDelete={selectedServiceDelete} setGetBarberServicesBybarberIdLength={setGetBarberServicesBybarberIdLength} />
           </div>
 
           <div className='barber-single-join-dropdown'>
             <p>Choose  Services :</p>
 
             <button onClick={() => setIsOpen2(true)}>Show Services</button>
-            <ServiceModal isOpen={isOpen2} setIsOpen={setIsOpen2} getAllSalonServices={getAllSalonServices} getAllSalonServicesLength={getAllSalonServicesLength} selectedService={selectedService} selectedServiceDelete={selectedServiceDelete} selectedServiceHandler={selectedServiceHandler} fetchSelectedServices={fetchSelectedServices} getBarberServicesOfSalonLength={getBarberServicesOfSalonLength} getBarberByMultipleServices={getBarberByMultipleServices} setCurrentbarberName={setCurrentbarberName} setSelectedBarberid={setSelectedBarberid} currentbarberName={currentbarberName} setGetAllSalonServicesLength={setGetAllSalonServicesLength} setGetBarberServicesOfSalonLength={setGetBarberServicesOfSalonLength}/>
+            <ServiceModal isOpen={isOpen2} setIsOpen={setIsOpen2} getAllSalonServices={getAllSalonServices} getAllSalonServicesLength={getAllSalonServicesLength} selectedService={selectedService} selectedServiceDelete={selectedServiceDelete} selectedServiceHandler={selectedServiceHandler} fetchSelectedServices={fetchSelectedServices} getBarberServicesOfSalonLength={getBarberServicesOfSalonLength} getBarberByMultipleServices={getBarberByMultipleServices} setCurrentbarberName={setCurrentbarberName} setSelectedBarberid={setSelectedBarberid} currentbarberName={currentbarberName} setGetAllSalonServicesLength={setGetAllSalonServicesLength} setGetBarberServicesOfSalonLength={setGetBarberServicesOfSalonLength} setSelectedBarberName={setSelectedBarberName} />
           </div>
 
         </div>
 
 
-      
+
         <button onClick={joinqueueHandler} className='join-queue-btn'>{
           singleJoinQueue?.loading == true ? <h2>Loading...</h2> : "Join Queue"
         }</button>

@@ -7,10 +7,12 @@ import { Link, useNavigate } from 'react-router-dom'
 import { GoogleLogin } from '@react-oauth/google';
 
 import { AdminLoginAction, AdminGoogleloginAction } from "../../Redux/Actions/AuthActions"
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { getToken } from "firebase/messaging";
 import { messaging } from '../../firebase';
+
+import ClipLoader from "react-spinners/ClipLoader";
 
 const SignIn = () => {
 
@@ -84,6 +86,9 @@ const SignIn = () => {
         console.log(error);
     };
 
+
+    const AdminLogin = useSelector(state => state.AdminLogin)
+
     return (
         <main className="signup">
             <div className="left">
@@ -142,7 +147,7 @@ const SignIn = () => {
 
                     <button className="divthree"
                         onClick={adminsubmitHandler}
-                    >Sign In </button>
+                    >{AdminLogin?.loading == true ? <div className='kiyosk-loader'><ClipLoader color={"white"}/></div> : "Sign In"} </button>
 
                     <div className="divfour">
                         <div>
@@ -165,11 +170,7 @@ const SignIn = () => {
                             text='continue_with'
                         />
 
-
                     </div>
-
-                    <p className="divsix">Don't have an account? <Link to="/admin-signup" className="link"><strong>Sign Up</strong></Link></p>
-
 
                 </div>
             </div>

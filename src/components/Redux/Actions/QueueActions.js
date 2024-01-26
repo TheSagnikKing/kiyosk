@@ -1,5 +1,7 @@
 import { QUELIST_FAIL, QUELIST_REQ, QUELIST_SUCCESS } from "../Constants/QueueConstants"
 
+import api from "../api/Api"
+
 export const queueListAction = (salonid) => async(dispatch) => {
     try {
         dispatch({type:QUELIST_REQ})

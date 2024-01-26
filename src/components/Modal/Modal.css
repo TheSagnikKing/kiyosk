@@ -14,9 +14,25 @@
 
 .modal-content{
     height: auto;
-    width: 750px;
+    width: 1000px;
     background-color: #fff;
     border-radius: 6px;
     box-shadow: 0px 0px 4px rgba(0,0,0,0.6);
     padding: 20px;
+}
+
+
+.main-modal-close{
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: red;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.8);
+    border-radius: 50%;
+    border: none;
 }

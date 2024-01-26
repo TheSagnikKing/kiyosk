@@ -4,8 +4,10 @@ import { TiTick } from 'react-icons/ti'
 import { RxCross2 } from 'react-icons/rx'
 import { IoIosAddCircle } from 'react-icons/io'
 import { FaRegClock } from 'react-icons/fa'
+import ClipLoader from "react-spinners/ClipLoader";
 
-const ServiceModal = ({isOpen, setIsOpen, getAllSalonServices, getAllSalonServicesLength,selectedService,selectedServiceDelete,selectedServiceHandler,fetchSelectedServices, getBarberServicesOfSalonLength, getBarberByMultipleServices,setCurrentbarberName,setSelectedBarberid, currentbarberName,setGetAllSalonServicesLength,setGetBarberServicesOfSalonLength}) => {
+const ServiceModal = ({isOpen, setIsOpen, getAllSalonServices, getAllSalonServicesLength,selectedService,selectedServiceDelete,selectedServiceHandler,fetchSelectedServices, getBarberServicesOfSalonLength, getBarberByMultipleServices,setCurrentbarberName,setSelectedBarberid, currentbarberName,setGetAllSalonServicesLength,setGetBarberServicesOfSalonLength, setSelectedBarberName}) => {
+
   return (
     <>
     {
@@ -71,7 +73,7 @@ const ServiceModal = ({isOpen, setIsOpen, getAllSalonServices, getAllSalonServic
               </div>
             </div>
           </div>
-        )) : <h1>Loading...</h1>
+        )) : <div className='kiyosk-loader'><ClipLoader size={50}/></div>
       }
 
       {
@@ -84,7 +86,7 @@ const ServiceModal = ({isOpen, setIsOpen, getAllSalonServices, getAllSalonServic
     {
       getBarberServicesOfSalonLength == true && <Modal isOpen={isOpen} setIsOpen={setIsOpen} setGetBarberServicesOfSalonLength={setGetBarberServicesOfSalonLength}><div className='model1'>
 
-      {getBarberByMultipleServices?.response?.map((barber) => (
+      {getBarberByMultipleServices?.loading == false && getBarberByMultipleServices?.response ? getBarberByMultipleServices?.response?.map((barber) => (
         <div key={barber._id}>
           <div >
             <div>
@@ -112,6 +114,7 @@ const ServiceModal = ({isOpen, setIsOpen, getAllSalonServices, getAllSalonServic
               borderRadius: "50%",
               boxShadow: "0px 0px 4px rgba(0,0,0,0.5)"
             }}><TiTick /></div> : <div onClick={() => {
+              setSelectedBarberName(barber.name)
               setCurrentbarberName(barber.name)
               setSelectedBarberid(barber.barberId)
             }}>
@@ -132,7 +135,7 @@ const ServiceModal = ({isOpen, setIsOpen, getAllSalonServices, getAllSalonServic
           </div>
 
         </div>
-      ))}
+      )) : <div className='kiyosk-loader'><ClipLoader size={50}/></div>} 
 
 
     </div> </Modal>
