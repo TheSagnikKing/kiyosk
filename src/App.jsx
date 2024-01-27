@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import BeatLoader from "react-spinners/BeatLoader";
+import Autojoin from './components/Admin/Autojoin/Autojoin';
 
 const Signin = React.lazy(() => import("./components/Admin/Signin/Signin"))
 const Queue = React.lazy(() =>import("./components/Admin/Queue/Queue"))
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/" element={<Signin />} />
           <Route path="/queue" element={<AdminAuth><Queue/></AdminAuth>}/>
           <Route path="/kiosk" element={<AdminAuth><Kiyosk/></AdminAuth>}/>
+          <Route path="/autojoin" element={<AdminAuth><Autojoin/></AdminAuth>}/>
         </Routes>
       </Suspense>
     </BrowserRouter>

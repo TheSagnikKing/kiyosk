@@ -12,6 +12,11 @@ const ServiceModal = ({isOpen, setIsOpen, getAllSalonServices, getAllSalonServic
     <>
     {
       getAllSalonServicesLength == true && <Modal isOpen={isOpen} setIsOpen={setIsOpen} setGetAllSalonServicesLength={setGetAllSalonServicesLength}><div className='model2'>
+      
+      {
+        selectedService.length > 0 && <button onClick={() => fetchSelectedServices()} className='services-search-btn' >Search</button>
+      }
+      
       {
         getAllSalonServices?.loading == false && getAllSalonServices?.response ? getAllSalonServices?.response?.map((b, index) => (
           <div key={b._id}>
@@ -74,10 +79,6 @@ const ServiceModal = ({isOpen, setIsOpen, getAllSalonServices, getAllSalonServic
             </div>
           </div>
         )) : <div className='kiyosk-loader'><ClipLoader size={50}/></div>
-      }
-
-      {
-        selectedService.length > 0 && <button onClick={() => fetchSelectedServices()} className='services-search-btn' >Search</button>
       }
 
     </div></Modal> 
