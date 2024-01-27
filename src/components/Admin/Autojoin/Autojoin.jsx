@@ -87,7 +87,7 @@ const Autojoin = () => {
   const autojoin = useSelector(state => state.autojoin)
 
   return (
-      <div className="singlejoin-barber-quebarber-wrapper">
+      <div className="singleautojoin-barber-quebarber-wrapper" style={{marginLeft:"40px"}}>
 
         <h2>Auto Join</h2>
 

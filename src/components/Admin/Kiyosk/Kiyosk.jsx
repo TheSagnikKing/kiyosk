@@ -180,7 +180,7 @@ const Kiyosk = () => {
 
   return (
 
-    <div className="singlejoin-barber-quebarber-wrapper">
+    <div className="singlejoin-barber-quebarber-wrapper" style={{marginLeft:"40px"}}>
 
       <h2>Join Queue</h2>
 
